@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
+use App\Jobs\SendEmail;
+
 use Validator;
 use Hash;
 use Illuminate\Validation\ValidationException;
@@ -28,6 +30,8 @@ class UserController extends Controller
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        SendEmail::dispatch($user);
 
         return response()->json(['data' => $user, 'token' => $token], 201);
     }
