@@ -1,3 +1,9 @@
+## Setup Project
+- Update `.env` value
+- Run: `composer install`
+- Run: `php artisan migrate`
+- Run: `php artisan serve`
+
 ## Setup Weather API
 - Go to https://www.weatherapi.com/
 - Register
